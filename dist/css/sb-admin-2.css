@@ -370,7 +370,7 @@ background-color: #f8f8f8;
     padding: 10px;
     border-radius: 5px;
     background-color: white;
-    width: 250px;
+    width: 15%;
     margin: 20px;
     min-height: 500px;
 }
@@ -379,12 +379,12 @@ background-color: #f8f8f8;
     padding: 10px;
     border-radius: 5px;
     background-color: white;
-    width: 80%;
+    width: 79%;
     margin: 20px;
-    margin-left: 0px !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
     min-height: 240px;
-    float: right !important;
-
 }
 
 .table-container ul {
