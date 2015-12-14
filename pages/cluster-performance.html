@@ -32,6 +32,8 @@
 
     <!-- Custom Fonts -->
     <link href="../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet"
+          type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +66,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown active">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">Query Editors <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -121,7 +123,7 @@
                                 <li><a href="#">Falcon</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">Cluster <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -335,50 +337,109 @@
 
     <nav>
         <ul class="nav nav-tabs hive-nav">
-            <li><h5>Pig</h5></li>
-            <li><a href="#">Scripts</a></li>
-            <li><a href="#">UDFs</a></li>
+            <li><h5>Hive Editor</h5></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Instances <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 1</a>
+                    <li class="active"><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 2</a>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 3</a>
+                </ul>
+            </li>
+            <li><a href="#">Query</a></li>
+            <li><a href="#">Saved Query</a></li>
+            <li><a href="#">Saved Queries</a></li>
             <li><a href="#">History</a></li>
+            <li><a href="#">UDFs</a></li>
         </ul>
     </nav>
 
 
     <div id="page-wrapper">
 
-        <div class="content pig-view-container" style="min-height: 100px;">
-            <div class="col-md-12 main-content">
-                <div id="ember653" class="ember-view">
+        <div class="side_bar pull-left">
 
-                    <div class="scriptlist">
-                        <div class="title-row">
-                            <h3 class="pull-left">Scripts</h3>
-                            <a data-ember-action="655" class="btn btn-default pull-right new-script"><i class="fa fa-plus"></i> New Script</a>
-                        </div>
-                        <table class="table table-striped ">
-                            <thead>
-                            <tr class="label-row">
-                                <th class="first">Name</th>
-                                <th>Last Executed</th>
-                                <th>Last Results</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+            <div id="tree"></div>
 
-                            </tbody>
-                        </table>
-
-
-
-
-                        <div class="alert alert-info" role="alert">No pig scripts have been created. To get started, click New Script.</div>
-
-                    </div>
-
-
-                </div>
-            </div>
         </div>
+        <div class="content" style="min-height: 100px;">
+            <img src="../images/graph.png" width="99%">
+        </div>
+        <div class="content ">
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Column heading</th>
+                    <th>Column heading</th>
+                    <th>Column heading</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                    <th scope="row">1</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr class="success">
+                    <th scope="row">3</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr class="info">
+                    <th scope="row">5</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr class="warning">
+                    <th scope="row">7</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr class="danger">
+                    <th scope="row">9</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
 
     </div>
     <!-- /#page-wrapper -->
@@ -397,12 +458,51 @@
 
 <!-- Morris Charts JavaScript -->
 <script src="../bower_components/raphael/raphael-min.js"></script>
-<script src="../bower_components/morrisjs/morris.min.js"></script>
-<script src="../js/morris-data.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
 
+
+<script>
+    var tree = [
+        {
+            text: "Parent 1",
+            nodes: [
+                {
+                    text: "Child 1",
+                    nodes: [
+                        {
+                            text: "Grandchild 1"
+                        },
+                        {
+                            text: "Grandchild 2"
+                        }
+                    ]
+                },
+                {
+                    text: "Child 2"
+                }
+            ]
+        },
+        {
+            text: "Parent 2"
+        },
+        {
+            text: "Parent 3"
+        },
+        {
+            text: "Parent 4"
+        },
+        {
+            text: "Parent 5"
+        }
+    ];
+
+    $('#tree').treeview({data: tree});
+</script>
 </body>
 
 </html>
