@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Views</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+
+    <link href="../dist/css/hue3.888a96cf9844.css" rel="stylesheet">
+    <link href="../dist/css/nv.d3.3542070d542f.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top navbar-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">HDP Views</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <nav class="navbar navbar-left">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Query Editors <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="hive-view.html">Hive</a></li>
+                                <li><a href="#">DB Query</a></li>
+                                <li><a href="#">Pig</a></li>
+                                <li><a href="#">Job Designer</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Data Browsers <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Metastore Tables</a></li>
+                                <li><a href="#">HBase</a></li>
+                                <li><a href="#">Sqoop Transfer</a></li>
+                                <li><a href="#">ZooKeeper</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Workflows <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="#"> Dashboards</a></li>
+                                <li><a href="#"> Editors</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Web Logs</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Indexes</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Security <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Ranger</a></li>
+                                <li><a href="#">File ACLs</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Governance <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Atlas</a></li>
+                                <li><a href="#">Falcon</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Cluster <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Capacity</a></li>
+                                <li><a href="#">Query Performace</a></li>
+                                <li><a href="#">Cluster Performace</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-messages">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Read All Messages</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-messages -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 1</strong>
+                                    <span class="pull-right text-muted">40% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 40%">
+                                        <span class="sr-only">40% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 2</strong>
+                                    <span class="pull-right text-muted">20% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar"
+                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 20%">
+                                        <span class="sr-only">20% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 3</strong>
+                                    <span class="pull-right text-muted">60% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar"
+                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 60%">
+                                        <span class="sr-only">60% Complete (warning)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 4</strong>
+                                    <span class="pull-right text-muted">80% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar"
+                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 80%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Tasks</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Configuration updated
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+    </nav>
+
+    <nav>
+        <ul class="nav nav-tabs hive-nav">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Instances <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 1</a>
+                    <li class="active"><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 2</a>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 3</a>
+                </ul>
+            </li>
+            <li><a href="#">Query</a></li>
+            <li><a href="#">Saved Query</a></li>
+            <li><a href="#">Saved Queries</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">UDFs</a></li>
+        </ul>
+    </nav>
+
+
+    <div id="page-wrapper">
+
+        <div id="ember475" class="ember-view">
+            <div class="container-fluid">
+                <div class="row">
+                    <script id="metamorph-1-start" type="text/x-placeholder"></script>
+                    <div id="ember642" class="ember-view">
+
+                        <div class="col-md-4" style="padding-top: 20px">
+
+                            <div class="row" style="padding-bottom: 20px">
+                                <script id="metamorph-4-start" type="text/x-placeholder"></script>
+                                <div class="add-queue col-sm-6">
+                                    <button data-ember-action="665" class="btn btn-default btn-block"
+                                            data-bindattr-666="666"><i class="fa fa-plus"></i> Add Queue
+                                    </button>
+                                </div>
+                                <div class="add-queue col-sm-6">
+                                    <div class="btn-group btn-group-justified btn-group-save">
+                                        <div class="btn-group">
+                                            <button id="ember685" class="ember-view btn dropdown-toggle btn-default"
+                                                    data-toggle="dropdown">
+                                                <script id="metamorph-5-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-5-end" type="text/x-placeholder"></script>
+                                                Actions <span class="caret"></span></button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li id="ember694" class="ember-view">
+
+                                                    <a id="ember697" class="ember-view btn disabled"><i
+                                                            class="fa fa-fw fa fa-cogs"></i> Save and Restart
+                                                        ResourceManager</a>
+                                                    <script id="metamorph-6-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-6-end" type="text/x-placeholder"></script>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-ember-action="700" class="btn disabled"
+                                                       data-bindattr-701="701"><i class="fa fa-fw fa-refresh"></i> Save
+                                                        and Refresh Queues</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-ember-action="702" class="btn disabled"
+                                                       data-bindattr-703="703"><i class="fa fa-fw fa-save"></i> Save
+                                                        Only</a>
+                                                </li>
+                                                <li id="ember704" class="ember-view">
+
+                                                    <a id="ember705" class="ember-view btn"><i
+                                                            class="fa fa-fw fa fa-download"></i> Download config</a>
+                                                    <script id="metamorph-7-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-7-end" type="text/x-placeholder"></script>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script id="metamorph-4-end" type="text/x-placeholder"></script>
+                            </div>
+
+                            <script id="metamorph-8-start" type="text/x-placeholder"></script>
+                            <script id="metamorph-8-end" type="text/x-placeholder"></script>
+
+                            <div class="list-group queue-list">
+                                <div id="ember715" class="ember-view">
+
+                                    <script id="metamorph-10-start" type="text/x-placeholder"></script>
+                                    <script id="metamorph-9-start" type="text/x-placeholder"></script>
+                                    <a id="ember733" class="ember-view list-group-item first"
+                                       href="#/queues/root">
+    <span class="col-md-offset-0 col-sm-offset-0 col-xs-offset-0">
+
+    <div class="progress">
+        <div id="ember750" class="ember-view progress-bar progress-bar-success" style="width: 100%;"></div>
+    </div>
+    <script id="metamorph-11-start" type="text/x-placeholder"></script>root<script id="metamorph-11-end"
+                                                                                   type="text/x-placeholder"></script> (<script
+            id="metamorph-12-start" type="text/x-placeholder"></script>100<script id="metamorph-12-end"
+                                                                                  type="text/x-placeholder"></script>%)
+
+    <script id="metamorph-13-start" type="text/x-placeholder"></script><script id="metamorph-13-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <script id="metamorph-14-start" type="text/x-placeholder"></script><script id="metamorph-14-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <span id="ember759" class="ember-view badge pull-right">
+
+<script id="metamorph-15-start" type="text/x-placeholder"></script><script id="metamorph-15-end"
+                                                                           type="text/x-placeholder"></script>
+<i id="ember767" class="ember-view fa fa-fw fa-lg green fa-check"></i>
+</span>
+
+    <script id="metamorph-16-start" type="text/x-placeholder"></script><script id="metamorph-16-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <script id="metamorph-17-start" type="text/x-placeholder"></script><script id="metamorph-17-end"
+                                                                               type="text/x-placeholder"></script>
+
+    </span>
+                                    </a>
+
+                                    <div id="ember770" class="ember-view">
+
+                                        <script id="metamorph-19-start" type="text/x-placeholder"></script>
+                                        <script id="metamorph-18-start" type="text/x-placeholder"></script>
+                                        <a id="ember778" class="ember-view list-group-item last"
+                                           href="#/queues/root.default">
+    <span class="col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+
+    <div class="progress">
+        <div id="ember780" class="ember-view progress-bar progress-bar-success" style="width: 100%;"></div>
+    </div>
+    <script id="metamorph-20-start" type="text/x-placeholder"></script>default<script id="metamorph-20-end"
+                                                                                      type="text/x-placeholder"></script> (<script
+            id="metamorph-21-start" type="text/x-placeholder"></script>100<script id="metamorph-21-end"
+                                                                                  type="text/x-placeholder"></script>%)
+
+    <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <script id="metamorph-23-start" type="text/x-placeholder"></script><script id="metamorph-23-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <span id="ember783" class="ember-view badge pull-right">
+
+<script id="metamorph-24-start" type="text/x-placeholder"></script><script id="metamorph-24-end"
+                                                                           type="text/x-placeholder"></script>
+<i id="ember785" class="ember-view fa fa-fw fa-lg green fa-check"></i>
+</span>
+
+    <script id="metamorph-25-start" type="text/x-placeholder"></script><script id="metamorph-25-end"
+                                                                               type="text/x-placeholder"></script>
+
+    <script id="metamorph-26-start" type="text/x-placeholder"></script>
+      <span class="badge pull-right">
+        <i class="fa fa-leaf"></i>
+      </span>
+    <script id="metamorph-26-end" type="text/x-placeholder"></script>
+
+    </span>
+                                        </a>
+
+                                        <div id="ember788" class="ember-view">
+
+                                            <script id="metamorph-27-start" type="text/x-placeholder"></script>
+                                            <script id="metamorph-27-end" type="text/x-placeholder"></script>
+                                        </div>
+                                        <script id="metamorph-18-end" type="text/x-placeholder"></script>
+                                        <script id="metamorph-19-end" type="text/x-placeholder"></script>
+                                    </div>
+                                    <script id="metamorph-9-end" type="text/x-placeholder"></script>
+                                    <script id="metamorph-10-end" type="text/x-placeholder"></script>
+                                </div>
+                            </div>
+
+                            <div class="hidden-sm hidden-xs">
+
+
+                                <div class="panel panel-default panel-scheduler">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Scheduler
+      <span id="ember793" class="ember-view pull-right">
+
+<script id="metamorph-28-start" type="text/x-placeholder"></script><script id="metamorph-28-end"
+                                                                           type="text/x-placeholder"></script>
+<i id="ember795" class="ember-view fa fa-fw fa-lg green fa-check"></i>
+</span>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label id="ember802"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-29-start"
+                                                                                                type="text/x-placeholder"></script>Maximum Applications<script
+                                                        id="metamorph-29-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <script id="metamorph-30-start" type="text/x-placeholder"></script>
+                                                <div class="col-xs-6 control-value">
+                                                    <input id="ember814"
+                                                           class="ember-view ember-text-field form-control input-sm input-int"
+                                                           maxlength="15" type="text" value="10000">
+                                                    <script id="metamorph-31-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-31-end" type="text/x-placeholder"></script>
+                                                </div>
+                                                <script id="metamorph-30-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <div class="form-group">
+                                                <label id="ember816"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-32-start"
+                                                                                                type="text/x-placeholder"></script>Maximum AM Resource<script
+                                                        id="metamorph-32-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <script id="metamorph-33-start" type="text/x-placeholder"></script>
+                                                <div class="col-xs-6 control-value input-percent-wrap">
+                                                    <div>
+                                                        <div class="input-group input-percent">
+                                                            <input id="ember818"
+                                                                   class="ember-view ember-text-field form-control input-sm"
+                                                                   type="text" value="20">
+                                                            <span class="input-group-addon">%</span>
+                                                        </div>
+                                                    </div>
+                                                    <script id="metamorph-34-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-34-end" type="text/x-placeholder"></script>
+                                                </div>
+                                                <script id="metamorph-33-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <div class="form-group">
+                                                <label id="ember820"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-35-start"
+                                                                                                type="text/x-placeholder"></script>Node Locality Delay<script
+                                                        id="metamorph-35-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <script id="metamorph-36-start" type="text/x-placeholder"></script>
+                                                <div class="col-xs-6 control-value">
+                                                    <input id="ember822"
+                                                           class="ember-view ember-text-field form-control input-sm input-int"
+                                                           maxlength="10" type="text" value="40">
+                                                    <script id="metamorph-37-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-37-end" type="text/x-placeholder"></script>
+                                                </div>
+                                                <script id="metamorph-36-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-38-start" type="text/x-placeholder"></script>
+                                            <div class="form-group">
+                                                <label id="ember825"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-39-start"
+                                                                                                type="text/x-placeholder"></script>Calculator<script
+                                                        id="metamorph-39-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <div class="col-xs-7 control-value">
+                                                    <input id="ember832"
+                                                           class="ember-view ember-text-field input-sm form-control input-expand"
+                                                           type="text"
+                                                           value="org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator">
+                                                    <script id="metamorph-40-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-40-end" type="text/x-placeholder"></script>
+                                                </div>
+                                            </div>
+                                            <script id="metamorph-38-end" type="text/x-placeholder"></script>
+                                            <div class="form-group">
+                                                <label id="ember834"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-41-start"
+                                                                                                type="text/x-placeholder"></script>Queue Mappings<script
+                                                        id="metamorph-41-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <script id="metamorph-42-start" type="text/x-placeholder"></script>
+                                                <div class="col-xs-7 control-value">
+                                                    <input id="ember836"
+                                                           class="ember-view ember-text-field input-sm form-control input-expand"
+                                                           type="text">
+                                                    <script id="metamorph-43-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-43-end" type="text/x-placeholder"></script>
+                                                </div>
+                                                <script id="metamorph-42-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <div class="form-group">
+                                                <label id="ember838"
+                                                       class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                        data-original-title="" title=""><script id="metamorph-44-start"
+                                                                                                type="text/x-placeholder"></script>Queue Mappings Override<script
+                                                        id="metamorph-44-end" type="text/x-placeholder"></script></span>
+                                                </label>
+                                                <script id="metamorph-45-start" type="text/x-placeholder"></script>
+                                                <div class="col-xs-7 control-value input-percent-wrap">
+                                                    <div>
+                                                        <div class="btn-group btn-group-sm pull-right">
+                                                            <a href="#" data-ember-action="840" class="btn btn-default">
+                                                                <i class="fa fa-square-o" data-bindattr-841="841"></i>
+                                                                <script id="metamorph-46-start"
+                                                                        type="text/x-placeholder"></script>
+                                                                Disabled
+                                                                <script id="metamorph-46-end"
+                                                                        type="text/x-placeholder"></script>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <script id="metamorph-47-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-47-end" type="text/x-placeholder"></script>
+                                                </div>
+                                                <script id="metamorph-45-end" type="text/x-placeholder"></script>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="hidden-sm hidden-xs">
+                                <div class="panel panel-default panel-versions">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Versions
+                                        </div>
+                                    </div>
+                                    <div id="versions-table-wrap" class="ps-container">
+                                        <table class="table table-condensed">
+                                            <tbody>
+                                            <script id="metamorph-48-start" type="text/x-placeholder"></script>
+                                            <script id="metamorph-70-start" type="text/x-placeholder"></script>
+                                            <tr>
+                                                <td>
+                                                    <span class="label label-info">v<script id="metamorph-71-start"
+                                                                                            type="text/x-placeholder"></script>1<script
+                                                            id="metamorph-71-end"
+                                                            type="text/x-placeholder"></script></span>
+                                                    <script id="metamorph-72-start" type="text/x-placeholder"></script>
+                                                    <span class="label label-success">Current</span>
+                                                    <script id="metamorph-72-end" type="text/x-placeholder"></script>
+                                                </td>
+                                                <td>
+                                                    <script id="metamorph-73-start" type="text/x-placeholder"></script>
+                                                    version1
+                                                    <script id="metamorph-73-end" type="text/x-placeholder"></script>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-xs btn-block">
+                                                        <button type="button" class="btn btn-default btn-xs btn-block"
+                                                                data-ember-action="913">load
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <script id="metamorph-70-end" type="text/x-placeholder"></script>
+                                            <script id="metamorph-48-end" type="text/x-placeholder"></script>
+                                            </tbody>
+                                        </table>
+                                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                                            <div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+                                        </div>
+                                        <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+                                            <div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-8 queue-area">
+                            <script id="metamorph-49-start" type="text/x-placeholder"></script>
+                            <script id="metamorph-74-start" type="text/x-placeholder"></script>
+
+                            <div class="well-queue">
+                                <div class="row queue-heading-row">
+                                    <div class="col-md-12">
+                                        <h3>
+                                            <script id="metamorph-75-start" type="text/x-placeholder"></script>
+                                            <script id="metamorph-76-start" type="text/x-placeholder"></script>
+                                            <script id="metamorph-77-start" type="text/x-placeholder"></script>
+                                            root
+                                            <script id="metamorph-77-end" type="text/x-placeholder"></script>
+                                            <script id="metamorph-78-start" type="text/x-placeholder"></script>
+                                            <script id="metamorph-78-end" type="text/x-placeholder"></script>
+                                            <script id="metamorph-76-end" type="text/x-placeholder"></script>
+                                            <script id="metamorph-75-end" type="text/x-placeholder"></script>
+                                        </h3>
+                                        <script id="metamorph-79-start" type="text/x-placeholder"></script>
+                                        <script id="metamorph-79-end" type="text/x-placeholder"></script>
+                                        <h4>
+                                            <small>
+                                                <script id="metamorph-80-start" type="text/x-placeholder"></script>
+                                                root
+                                                <script id="metamorph-80-end" type="text/x-placeholder"></script>
+                                            </small>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="row queue-capacity-row">
+                                    <div class="col-md-12">
+                                        <div id="ember934" class="ember-view">
+
+                                            <div class="panel panel-default panel-capacity">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title">
+                                                        Capacity
+                                                        <div class="total">
+                                                            <div class="level-total-label">Level Total</div>
+                                                            <div id="ember943" class="ember-view capacity-bar">
+
+                                                                <div class="progress progress-labelled"
+                                                                     data-label-max="100" data-label-step="25"
+                                                                     style="position: relative;">
+                                                                    <div class="progress-bar progress-bar-success"
+                                                                         style="width: 100%;" data-bindattr-944="944">
+      <span>
+        <script id="metamorph-81-start" type="text/x-placeholder"></script>100<script id="metamorph-81-end"
+                                                                                      type="text/x-placeholder"></script>%
+      </span>
+                                                                    </div>
+                                                                    <div class="progress-bar progress-bar-success progress-striped"
+                                                                         style="width: 0%;" data-bindattr-945="945">
+                                                                    </div>
+
+                                                                    <div class="marks">
+                                                                        <label style="left: 25%;">
+                                                                            <div></div>
+                                                                        </label>
+                                                                        <label style="left: 50%;">
+                                                                            <div></div>
+                                                                        </label>
+                                                                        <label style="left: 75%;">
+                                                                            <div></div>
+                                                                        </label>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <script id="metamorph-82-start" type="text/x-placeholder"></script>
+
+
+                                                    <div class="queue-container">
+                                                        <script id="metamorph-163-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="btn-group btn-group-xs pull-right">
+                                                            <a href="#" data-ember-action="1150"
+                                                               class="btn btn-default labels-enabler">
+                                                                <i class="fa fa-check-square-o"
+                                                                   data-bindattr-1151="1151"></i> Enable node labels
+                                                            </a>
+                                                        </div>
+                                                        <script id="metamorph-163-end"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="queue-capacity">
+                                                            <h5><strong>
+                                                                <script id="metamorph-164-start"
+                                                                        type="text/x-placeholder"></script>
+                                                                root
+                                                                <script id="metamorph-164-end"
+                                                                        type="text/x-placeholder"></script>
+                                                            </strong></h5>
+                                                            <div id="ember1152" class="ember-view">
+
+                                                                <form class="form-inline capacity-edit-form"
+                                                                      data-bindattr-1153="1153" role="form">
+
+                                                                    <script id="metamorph-165-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <div class="form-group">
+                                                                        <label id="ember1155"
+                                                                               class="ember-view tooltip-label"><span
+                                                                                data-original-title="" title=""><script
+                                                                                id="metamorph-166-start"
+                                                                                type="text/x-placeholder"></script>Capacity:<script
+                                                                                id="metamorph-166-end"
+                                                                                type="text/x-placeholder"></script></span>
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <div class="input-group input-percent">
+                                                                                <input id="ember1156"
+                                                                                       class="ember-view ember-text-field form-control input-sm"
+                                                                                       type="text" value="100">
+                                                                                <span class="input-group-addon">%</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input id="ember1157"
+                                                                               class="ember-view ember-text-field input-sm"
+                                                                               type="range" min="0" max="100" step="1"
+                                                                               value="100">
+                                                                    </div>
+
+
+
+
+                                                                    <div class="form-group" data-bindattr-1159="1159">
+                                                                        <label id="ember1160"
+                                                                               class="ember-view tooltip-label"><span
+                                                                                data-original-title="" title=""><script
+                                                                                id="metamorph-168-start"
+                                                                                type="text/x-placeholder"></script>Max Capacity:<script
+                                                                                id="metamorph-168-end"
+                                                                                type="text/x-placeholder"></script></span>
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <div class="input-group input-percent">
+                                                                                <input id="ember1161"
+                                                                                       class="ember-view ember-text-field form-control input-sm"
+                                                                                       type="text">
+                                                                                <span class="input-group-addon">%</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group" data-bindattr-1162="1162">
+                                                                        <input id="ember1163"
+                                                                               class="ember-view ember-text-field input-sm "
+                                                                               type="range" min="0" max="100" step="1">
+                                                                        <script id="metamorph-169-start"
+                                                                                type="text/x-placeholder"></script>
+                                                                        <script id="metamorph-169-end"
+                                                                                type="text/x-placeholder"></script>
+                                                                    </div>
+                                                                    </br>
+                                                                    </br>
+
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="labels-toggle-wrap" data-bindattr-1168="1168">
+                                                            <small id="ember1169" class="ember-view tooltip-label"><span
+                                                                    data-original-title="" title=""><script
+                                                                    id="metamorph-171-start"
+                                                                    type="text/x-placeholder"></script>Node Labels Access<script
+                                                                    id="metamorph-171-end"
+                                                                    type="text/x-placeholder"></script></span></small>
+                                                            <script id="metamorph-172-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <div class="btn-group btn-group-xs labels-toggle-all">
+                                                                <button data-ember-action="1171" type="button"
+                                                                        class="btn btn-success"
+                                                                        data-bindattr-1172="1172"><i
+                                                                        class="fa fa-asterisk"></i></button>
+                                                            </div>
+                                                            <script id="metamorph-172-end"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-173-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-173-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-174-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <script id="metamorph-174-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <script id="metamorph-82-end" type="text/x-placeholder"></script>
+                                                    <div class="peer-toggle">
+                                                        <a href="#" data-ember-action="1010">
+                                                            <script id="metamorph-95-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <small><i class="fa fa-chevron-down"></i> Show Peer Level
+                                                                Queues
+                                                            </small>
+                                                            <script id="metamorph-95-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </a>
+                                                    </div>
+                                                    <script id="metamorph-96-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-96-end" type="text/x-placeholder"></script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row queue-acl-row">
+                                    <div class="col-md-12 col-lg-6 queue-acl">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    Access Control and Status
+                                                </div>
+                                            </div>
+                                            <script id="metamorph-97-start" type="text/x-placeholder"></script>
+                                            <div class="panel-body">
+                                                <form class="form-horizontal form-acl" role="form">
+                                                    <div class="form-group row">
+                                                        <label id="ember1014"
+                                                               class="ember-view tooltip-label col-lg-4 col-xs-4 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-98-start"
+                                                                type="text/x-placeholder"></script>State<script
+                                                                id="metamorph-98-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-7 control-value">
+                                                            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                                                                <label data-ember-action="1015"
+                                                                       class="btn active btn-success"
+                                                                       data-bindattr-1016="1016">
+                                                                    <input type="radio" name="options"> Running
+                                                                </label>
+                                                                <label data-ember-action="1017" class="btn btn-default"
+                                                                       data-bindattr-1018="1018">
+                                                                    <input type="radio" name="options"> Stopped
+                                                                </label>
+                                                            </div>
+                                                            <script id="metamorph-99-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-99-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                    </div>
+
+                                                    <script id="metamorph-100-start" type="text/x-placeholder"></script>
+
+                                                    <div class="form-group row">
+                                                        <label id="ember1021"
+                                                               class="ember-view tooltip-label col-lg-4 col-xs-4 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-101-start"
+                                                                type="text/x-placeholder"></script>Administer Queue<script
+                                                                id="metamorph-101-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-7 control-value">
+                                                            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                                                                <label id="ember1028"
+                                                                       class="ember-view btn btn-default active">
+                                                                    <script id="metamorph-102-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    Anyone
+                                                                    <script id="metamorph-102-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <input id="ember1031" class="ember-view"
+                                                                           type="radio" value="*"
+                                                                           checked="checked"></label>
+                                                                <label id="ember1032"
+                                                                       class="ember-view btn btn-default">
+                                                                    <script id="metamorph-103-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    Custom
+                                                                    <script id="metamorph-103-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <input id="ember1033" class="ember-view"
+                                                                           type="radio" value="custom"></label>
+                                                            </div>
+                                                            <script id="metamorph-104-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-104-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                    </div>
+                                                    <script id="metamorph-105-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-105-end" type="text/x-placeholder"></script>
+
+                                                    <div class="form-group row">
+                                                        <label id="ember1036"
+                                                               class="ember-view tooltip-label col-lg-4 col-xs-4 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-106-start"
+                                                                type="text/x-placeholder"></script>Submit Applications<script
+                                                                id="metamorph-106-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-7 control-value">
+                                                            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                                                                <label id="ember1037"
+                                                                       class="ember-view btn btn-default active">
+                                                                    <script id="metamorph-107-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    Anyone
+                                                                    <script id="metamorph-107-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <input id="ember1038" class="ember-view"
+                                                                           type="radio" value="*"
+                                                                           checked="checked"></label>
+                                                                <label id="ember1039"
+                                                                       class="ember-view btn btn-default">
+                                                                    <script id="metamorph-108-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    Custom
+                                                                    <script id="metamorph-108-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <input id="ember1040" class="ember-view"
+                                                                           type="radio" value="custom"></label>
+                                                            </div>
+                                                            <script id="metamorph-109-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-109-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                    </div>
+                                                    <script id="metamorph-110-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-110-end" type="text/x-placeholder"></script>
+
+                                                    <script id="metamorph-100-end" type="text/x-placeholder"></script>
+                                                </form>
+                                            </div>
+                                            <script id="metamorph-97-end" type="text/x-placeholder"></script>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-6 queue-resources">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    Resources
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-group">
+                                                        <label id="ember1043"
+                                                               class="ember-view tooltip-label col-xs-6 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-111-start"
+                                                                type="text/x-placeholder"></script>User Limit Factor<script
+                                                                id="metamorph-111-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <script id="metamorph-112-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="col-xs-6 control-value">
+                                                            <input id="ember1045"
+                                                                   class="ember-view ember-text-field form-control input-sm input-int"
+                                                                   placeholder="1" maxlength="10" type="text">
+                                                            <script id="metamorph-113-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-113-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-112-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label id="ember1047"
+                                                               class="ember-view tooltip-label col-xs-6 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-114-start"
+                                                                type="text/x-placeholder"></script>Minimum User Limit<script
+                                                                id="metamorph-114-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <script id="metamorph-115-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="col-xs-6 control-value input-percent-wrap">
+                                                            <div>
+                                                                <div class="input-group input-percent">
+                                                                    <input id="ember1049"
+                                                                           class="ember-view ember-text-field form-control input-sm"
+                                                                           placeholder="100" type="text">
+                                                                    <span class="input-group-addon">%</span>
+                                                                </div>
+                                                            </div>
+                                                            <script id="metamorph-116-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-116-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-115-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label id="ember1051"
+                                                               class="ember-view tooltip-label col-xs-6 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-117-start"
+                                                                type="text/x-placeholder"></script>Maximum Applications<script
+                                                                id="metamorph-117-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <script id="metamorph-118-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="col-xs-6 control-value">
+                                                            <input id="ember1053"
+                                                                   class="ember-view ember-text-field form-control input-sm input-int"
+                                                                   placeholder="Inherited" maxlength="15" type="text">
+                                                            <script id="metamorph-119-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-119-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-118-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label id="ember1055"
+                                                               class="ember-view tooltip-label col-xs-6 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-120-start"
+                                                                type="text/x-placeholder"></script>Maximum AM Resource<script
+                                                                id="metamorph-120-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <script id="metamorph-121-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="col-xs-6 control-value input-percent-wrap">
+                                                            <div>
+                                                                <div class="input-group input-percent">
+                                                                    <input id="ember1057"
+                                                                           class="ember-view ember-text-field form-control input-sm"
+                                                                           placeholder="Inherited" type="text">
+                                                                    <span class="input-group-addon">%</span>
+                                                                </div>
+                                                            </div>
+                                                            <script id="metamorph-122-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-122-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-121-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label id="ember1059"
+                                                               class="ember-view tooltip-label col-xs-6 control-label"><span
+                                                                data-original-title="" title=""><script
+                                                                id="metamorph-123-start"
+                                                                type="text/x-placeholder"></script>Ordering policy<script
+                                                                id="metamorph-123-end"
+                                                                type="text/x-placeholder"></script></span> </label>
+                                                        <script id="metamorph-124-start"
+                                                                type="text/x-placeholder"></script>
+                                                        <div class="col-xs-6 control-value input-percent-wrap">
+                                                            <div>
+                                                                <select id="ember1063"
+                                                                        class="ember-view ember-select form-control input-sm">
+                                                                    <script id="metamorph-125-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-125-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-126-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-130-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-127-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <option id="ember1076" class="ember-view"
+                                                                            selected="selected">
+                                                                        <script id="metamorph-131-start"
+                                                                                type="text/x-placeholder"></script>
+                                                                        <script id="metamorph-131-end"
+                                                                                type="text/x-placeholder"></script>
+                                                                    </option>
+                                                                    <script id="metamorph-127-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-128-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <option id="ember1077" class="ember-view"
+                                                                            value="fifo">
+                                                                        <script id="metamorph-132-start"
+                                                                                type="text/x-placeholder"></script>
+                                                                        fifo
+                                                                        <script id="metamorph-132-end"
+                                                                                type="text/x-placeholder"></script>
+                                                                    </option>
+                                                                    <script id="metamorph-128-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-129-start"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <option id="ember1078" class="ember-view"
+                                                                            value="fair">
+                                                                        <script id="metamorph-133-start"
+                                                                                type="text/x-placeholder"></script>
+                                                                        fair
+                                                                        <script id="metamorph-133-end"
+                                                                                type="text/x-placeholder"></script>
+                                                                    </option>
+                                                                    <script id="metamorph-129-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-130-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                    <script id="metamorph-126-end"
+                                                                            type="text/x-placeholder"></script>
+                                                                </select>
+                                                            </div>
+                                                            <script id="metamorph-134-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            <script id="metamorph-134-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </div>
+                                                        <script id="metamorph-124-end"
+                                                                type="text/x-placeholder"></script>
+                                                    </div>
+                                                    <script id="metamorph-135-start" type="text/x-placeholder"></script>
+                                                    <script id="metamorph-135-end" type="text/x-placeholder"></script>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script id="metamorph-74-end" type="text/x-placeholder"></script>
+                            <script id="metamorph-49-end" type="text/x-placeholder"></script>
+                        </div>
+
+
+                        <div class="col-md-12 hidden-lg hidden-md">
+
+
+                            <div class="panel panel-default panel-scheduler">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        Scheduler
+      <span id="ember863" class="ember-view pull-right">
+
+<script id="metamorph-50-start" type="text/x-placeholder"></script><script id="metamorph-50-end"
+                                                                           type="text/x-placeholder"></script>
+<i id="ember865" class="ember-view fa fa-fw fa-lg green fa-check"></i>
+</span>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label id="ember866"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-51-start"
+                                                                                            type="text/x-placeholder"></script>Maximum Applications<script
+                                                    id="metamorph-51-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <script id="metamorph-52-start" type="text/x-placeholder"></script>
+                                            <div class="col-xs-6 control-value">
+                                                <input id="ember868"
+                                                       class="ember-view ember-text-field form-control input-sm input-int"
+                                                       maxlength="15" type="text" value="10000">
+                                                <script id="metamorph-53-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-53-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-52-end" type="text/x-placeholder"></script>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="ember870"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-54-start"
+                                                                                            type="text/x-placeholder"></script>Maximum AM Resource<script
+                                                    id="metamorph-54-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <script id="metamorph-55-start" type="text/x-placeholder"></script>
+                                            <div class="col-xs-6 control-value input-percent-wrap">
+                                                <div>
+                                                    <div class="input-group input-percent">
+                                                        <input id="ember872"
+                                                               class="ember-view ember-text-field form-control input-sm"
+                                                               type="text" value="20">
+                                                        <span class="input-group-addon">%</span>
+                                                    </div>
+                                                </div>
+                                                <script id="metamorph-56-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-56-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-55-end" type="text/x-placeholder"></script>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="ember874"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-57-start"
+                                                                                            type="text/x-placeholder"></script>Node Locality Delay<script
+                                                    id="metamorph-57-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <script id="metamorph-58-start" type="text/x-placeholder"></script>
+                                            <div class="col-xs-6 control-value">
+                                                <input id="ember876"
+                                                       class="ember-view ember-text-field form-control input-sm input-int"
+                                                       maxlength="10" type="text" value="40">
+                                                <script id="metamorph-59-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-59-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-58-end" type="text/x-placeholder"></script>
+                                        </div>
+                                        <script id="metamorph-60-start" type="text/x-placeholder"></script>
+                                        <div class="form-group">
+                                            <label id="ember879"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-61-start"
+                                                                                            type="text/x-placeholder"></script>Calculator<script
+                                                    id="metamorph-61-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <div class="col-xs-7 control-value">
+                                                <input id="ember880"
+                                                       class="ember-view ember-text-field input-sm form-control input-expand"
+                                                       type="text"
+                                                       value="org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator">
+                                                <script id="metamorph-62-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-62-end" type="text/x-placeholder"></script>
+                                            </div>
+                                        </div>
+                                        <script id="metamorph-60-end" type="text/x-placeholder"></script>
+                                        <div class="form-group">
+                                            <label id="ember882"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-63-start"
+                                                                                            type="text/x-placeholder"></script>Queue Mappings<script
+                                                    id="metamorph-63-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <script id="metamorph-64-start" type="text/x-placeholder"></script>
+                                            <div class="col-xs-7 control-value">
+                                                <input id="ember884"
+                                                       class="ember-view ember-text-field input-sm form-control input-expand"
+                                                       type="text">
+                                                <script id="metamorph-65-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-65-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-64-end" type="text/x-placeholder"></script>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="ember886"
+                                                   class="ember-view tooltip-label col-xs-5 control-label"><span
+                                                    data-original-title="" title=""><script id="metamorph-66-start"
+                                                                                            type="text/x-placeholder"></script>Queue Mappings Override<script
+                                                    id="metamorph-66-end" type="text/x-placeholder"></script></span>
+                                            </label>
+                                            <script id="metamorph-67-start" type="text/x-placeholder"></script>
+                                            <div class="col-xs-7 control-value input-percent-wrap">
+                                                <div>
+                                                    <div class="btn-group btn-group-sm pull-right">
+                                                        <a href="#" data-ember-action="888" class="btn btn-default">
+                                                            <i class="fa fa-square-o" data-bindattr-889="889"></i>
+                                                            <script id="metamorph-68-start"
+                                                                    type="text/x-placeholder"></script>
+                                                            Disabled
+                                                            <script id="metamorph-68-end"
+                                                                    type="text/x-placeholder"></script>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <script id="metamorph-69-start" type="text/x-placeholder"></script>
+                                                <script id="metamorph-69-end" type="text/x-placeholder"></script>
+                                            </div>
+                                            <script id="metamorph-67-end" type="text/x-placeholder"></script>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal fade" id="noteModal" tabindex="-1" role="dialog"
+                             aria-labelledby="noteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span
+                                                aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="noteModalLabel">Notes</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <textarea id="ember894" class="ember-view ember-text-area form-control"
+                                                  placeholder="What did you change?" rows="3"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                        <button data-ember-action="895" type="button" class="btn btn-success"
+                                                data-dismiss="modal">Save changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script id="metamorph-1-end" type="text/x-placeholder"></script>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="../bower_components/raphael/raphael-min.js"></script>
+<script src="../bower_components/morrisjs/morris.min.js"></script>
+<script src="../js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
