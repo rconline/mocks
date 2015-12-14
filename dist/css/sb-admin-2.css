@@ -435,8 +435,8 @@ button {
     padding: 0;
     color: #716F6F;
     font-size: 18px;
+    margin-right: 50px;
 }
-
 .badge {
     color: #555;
     background-color: #ffffff;
