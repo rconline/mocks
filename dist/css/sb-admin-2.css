@@ -382,7 +382,7 @@ background-color: #f8f8f8;
     width: 80%;
     margin: 20px;
     margin-left: 0px !important;
-    min-height: 300px;
+    min-height: 240px;
     float: right !important;
 
 }
@@ -406,4 +406,10 @@ background-color: #f8f8f8;
 
 .hive-nav {
     padding-left: 50px;
+}
+
+.navbar-nav>li {
+    float: left;
+    font-size: 16px;
+    margin: 0px 10px;
 }
