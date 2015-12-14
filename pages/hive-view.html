@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Views</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+
+    <link href="../dist/css/hue3.888a96cf9844.css" rel="stylesheet">
+    <link href="../dist/css/nv.d3.3542070d542f.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top navbar-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">HDP Views</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <nav class="navbar navbar-left">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Query Editors <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="hive-view.html">Hive</a></li>
+                                <li><a href="#">DB Query</a></li>
+                                <li><a href="#">Pig</a></li>
+                                <li><a href="#">Job Designer</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Data Browsers <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Metastore Tables</a></li>
+                                <li><a href="#">HBase</a></li>
+                                <li><a href="#">Sqoop Transfer</a></li>
+                                <li><a href="#">ZooKeeper</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Workflows <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="#"> Dashboards</a></li>
+                                <li><a href="#"> Editors</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Web Logs</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Indexes</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Security <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Ranger</a></li>
+                                <li><a href="#">File ACLs</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Governance <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Atlas</a></li>
+                                <li><a href="#">Falcon</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-messages">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>Hive Query ran</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>Time of Execution</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Read All Messages</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-messages -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 1</strong>
+                                    <span class="pull-right text-muted">40% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 40%">
+                                        <span class="sr-only">40% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 2</strong>
+                                    <span class="pull-right text-muted">20% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar"
+                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 20%">
+                                        <span class="sr-only">20% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 3</strong>
+                                    <span class="pull-right text-muted">60% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar"
+                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 60%">
+                                        <span class="sr-only">60% Complete (warning)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 4</strong>
+                                    <span class="pull-right text-muted">80% Complete</span>
+                                </p>
+
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar"
+                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 80%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Tasks</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Configuration updated
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+    </nav>
+
+    <nav>
+        <ul class="nav nav-tabs hive-nav">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Instances <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 1</a>
+                    <li class="active"><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 2</a>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Hive instance 3</a>
+                </ul>
+            </li>
+            <li><a href="#">Query</a></li>
+            <li><a href="#">Saved Query</a></li>
+            <li><a href="#">Saved Queries</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">UDFs</a></li>
+        </ul>
+    </nav>
+
+
+    <div id="page-wrapper">
+
+        <div class="side_bar pull-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#">Database</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+
+            <div>
+                <div class="reveals-actions" style="position: relative; width:100%">
+                    <ul class="nav nav-list"
+                        style="position:relative; border: none; padding: 0; background-color: #FFF; margin-bottom: 1px; width:100%;">
+                        <li class="nav-header">
+                            <div class="db-heads">database</div>
+
+                            <div class="pull-right hover-actions" data-bind="css: { 'hover-actions' : ! reloading() }">
+                                <a href="javascript:void(0)" data-bind="click: reloadAssist"><i
+                                        class="pointer fa fa-refresh" data-bind="css: { 'fa-spin' : reloading }"
+                                        title="Manually refresh the table list"></i></a>
+                            </div>
+                        </li>
+
+                        <li data-bind="visible: ! hasErrors() &amp;&amp; ! loadingDatabases()">
+                            <div class="select2-container input-medium" id="s2id_autogen1" style="width: 100%;"><a
+                                    href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                    class="select2-chosen" id="select2-chosen-2">default</span><abbr
+                                    class="select2-search-choice-close"></abbr> <span class="select2-arrow"
+                                                                                      role="presentation"><b
+                                    role="presentation"></b></span></a>
+
+                                <select data-bind="options: availableDatabaseNames, select2: { width: '100%', placeholder: 'Choose a database...', update: assistHelper.activeDatabase }"
+                                        class="input-medium select2-offscreen" data-placeholder="Choose a database..."
+                                        tabindex="-1" title="">
+                                    <option value="default">default</option>
+                                </select>
+                            </div>
+
+                        </li>
+
+                        <li class="center" data-bind="visible: loadingDatabases" style="display: none;">
+                            <!--[if !IE]><!--><i class="fa fa-spinner fa-spin" style="font-size: 20px; color: #BBB"></i><!--<![endif]-->
+                            <!--[if IE]><img src="/static/desktop/art/spinner.86b1ac6d1c48.gif"/><![endif]-->
+                        </li>
+
+                        <li data-bind="visible: hasErrors" style="display: none;">
+                            <span>The database list cannot be loaded.</span>
+                        </li>
+
+                        <li class="nav-header" style="margin-top: 10px;"
+                            data-bind="visible: ! loadingDatabases() &amp;&amp; ! hasErrors()">
+                            <div class="db-heads">tables</div>
+
+                            <div class="pull-right hover-actions"
+                                 data-bind="visible: selectedDatabase() != null &amp;&amp; selectedDatabase().hasEntries(), css: { 'hover-actions': ! filter(), 'blue': filter }">
+                                <a href="javascript:void(0)" data-bind="click: toggleSearch"><i
+                                        class="pointer fa fa-search" title="Search"></i></a>
+                            </div>
+                        </li>
+
+                        <!-- ko if: selectedDatabase() != null -->
+                        <li data-bind="slideVisible: selectedDatabase() != null &amp;&amp; selectedDatabase().hasEntries() &amp;&amp; options.isSearchVisible()"
+                            style="display: none;">
+                            <div><input type="text" placeholder="Table name..." style="width:90%;"
+                                        data-bind="value: filter, valueUpdate: 'afterkeydown'"></div>
+                        </li>
+
+                        <div class="table-container" style="max-height: 402px; overflow-y: auto;">
+                            <div class="center"
+                                 data-bind="visible: selectedDatabase() != null &amp;&amp; selectedDatabase().loading()"
+                                 style="display: none;">
+                                <!--[if !IE]><!--><i class="fa fa-spinner fa-spin"
+                                                     style="font-size: 20px; color: #BBB"></i><!--<![endif]-->
+                                <!--[if IE]><img src="/static/desktop/art/spinner.86b1ac6d1c48.gif"/><![endif]-->
+                            </div>
+                            <!-- ko template: { if: selectedDatabase() != null, name: 'assist-entries', data: selectedDatabase } -->
+                            <ul data-bind="foreach: filteredEntries, css: { 'assist-tables': definition.isDatabase }, event: { 'scroll': assistPanel.repositionActions }"
+                                class="assist-tables">
+                                <li data-bind="css: { 'assist-table reveals-actions-2nd': definition.isTable, 'assist-column reveals-actions-3rd': definition.isColumn }"
+                                    class="assist-table reveals-actions-2nd">
+                                    <!-- ko template: { if: definition.isTable || definition.isColumn, name: 'assist-entry-actions' } -->
+                                    <div class="assist-actions hover-actions-2nd"
+                                         data-bind="css: { 'hover-actions-2nd': definition.isTable,  'hover-actions-3rd': definition.isColumn, 'show-actions': statsVisible }">
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable, click: showPreview"><i
+                                                class="fa fa-list" title="Preview Sample data"></i></a>
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable || definition.isColumn, click: showStats, css: { 'blue': statsVisible }"
+                                           class=""><i class="fa fa-bar-chart" title="View statistics"></i></a>
+                                    </div>
+                                    <!-- /ko -->
+                                    <a class="assist-column-link assist-table-link"
+                                       data-bind="multiClick: { click: toggleOpen, dblClick: dblClick }, attr: {'title': definition.title }, css: { 'assist-field-link': ! definition.isTable, 'assist-table-link': definition.isTable }"
+                                       href="javascript:void(0)" title="calls">
+                                        <span data-bind="text: definition.displayName">calls</span>
+                                    </a>
+                                    <!-- ko template: { if: open(), name: 'assist-entries'  } --><!-- /ko -->
+                                </li>
+
+                                <li data-bind="css: { 'assist-table reveals-actions-2nd': definition.isTable, 'assist-column reveals-actions-3rd': definition.isColumn }"
+                                    class="assist-table reveals-actions-2nd">
+                                    <!-- ko template: { if: definition.isTable || definition.isColumn, name: 'assist-entry-actions' } -->
+                                    <div class="assist-actions hover-actions-2nd"
+                                         data-bind="css: { 'hover-actions-2nd': definition.isTable,  'hover-actions-3rd': definition.isColumn, 'show-actions': statsVisible }">
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable, click: showPreview"><i
+                                                class="fa fa-list" title="Preview Sample data"></i></a>
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable || definition.isColumn, click: showStats, css: { 'blue': statsVisible }"><i
+                                                class="fa fa-bar-chart" title="View statistics"></i></a>
+                                    </div>
+                                    <!-- /ko -->
+                                    <a class="assist-column-link assist-table-link"
+                                       data-bind="multiClick: { click: toggleOpen, dblClick: dblClick }, attr: {'title': definition.title }, css: { 'assist-field-link': ! definition.isTable, 'assist-table-link': definition.isTable }"
+                                       href="javascript:void(0)" title="customers">
+                                        <span data-bind="text: definition.displayName">customers</span>
+                                    </a>
+                                    <!-- ko template: { if: open(), name: 'assist-entries'  } --><!-- /ko -->
+                                </li>
+
+                                <li data-bind="css: { 'assist-table reveals-actions-2nd': definition.isTable, 'assist-column reveals-actions-3rd': definition.isColumn }"
+                                    class="assist-table reveals-actions-2nd">
+                                    <!-- ko template: { if: definition.isTable || definition.isColumn, name: 'assist-entry-actions' } -->
+                                    <div class="assist-actions hover-actions-2nd"
+                                         data-bind="css: { 'hover-actions-2nd': definition.isTable,  'hover-actions-3rd': definition.isColumn, 'show-actions': statsVisible }">
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable, click: showPreview"><i
+                                                class="fa fa-list" title="Preview Sample data"></i></a>
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable || definition.isColumn, click: showStats, css: { 'blue': statsVisible }"><i
+                                                class="fa fa-bar-chart" title="View statistics"></i></a>
+                                    </div>
+                                    <!-- /ko -->
+                                    <a class="assist-column-link assist-table-link"
+                                       data-bind="multiClick: { click: toggleOpen, dblClick: dblClick }, attr: {'title': definition.title }, css: { 'assist-field-link': ! definition.isTable, 'assist-table-link': definition.isTable }"
+                                       href="javascript:void(0)" title="sample_07">
+                                        <span data-bind="text: definition.displayName">sample_07</span>
+                                    </a>
+                                    <!-- ko template: { if: open(), name: 'assist-entries'  } --><!-- /ko -->
+                                </li>
+
+                                <li data-bind="css: { 'assist-table reveals-actions-2nd': definition.isTable, 'assist-column reveals-actions-3rd': definition.isColumn }"
+                                    class="assist-table reveals-actions-2nd">
+                                    <!-- ko template: { if: definition.isTable || definition.isColumn, name: 'assist-entry-actions' } -->
+                                    <div class="assist-actions hover-actions-2nd"
+                                         data-bind="css: { 'hover-actions-2nd': definition.isTable,  'hover-actions-3rd': definition.isColumn, 'show-actions': statsVisible }">
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable, click: showPreview"><i
+                                                class="fa fa-list" title="Preview Sample data"></i></a>
+                                        <a href="javascript:void(0)"
+                                           data-bind="visible: definition.isTable || definition.isColumn, click: showStats, css: { 'blue': statsVisible }"><i
+                                                class="fa fa-bar-chart" title="View statistics"></i></a>
+                                    </div>
+                                    <!-- /ko -->
+                                    <a class="assist-column-link assist-table-link"
+                                       data-bind="multiClick: { click: toggleOpen, dblClick: dblClick }, attr: {'title': definition.title }, css: { 'assist-field-link': ! definition.isTable, 'assist-table-link': definition.isTable }"
+                                       href="javascript:void(0)" title="sample_08">
+                                        <span data-bind="text: definition.displayName">sample_08</span>
+                                    </a>
+                                    <!-- ko template: { if: open(), name: 'assist-entries'  } --><!-- /ko -->
+                                </li>
+                            </ul>
+                            <!-- ko template: { if: ! hasEntries() && ! loading(), name: 'assist-no-entries' } -->
+                            <!-- /ko -->
+                            <!-- /ko -->
+                        </div>
+                        <!-- /ko -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+
+            <div id="queryContainer" class="card card-small">
+                <div class="pull-right" style="margin: 10px">
+                    <i class="fa fa-question-circle" id="help" data-original-title=""></i>
+
+                    <div id="help-content" class="hide">
+                        <ul style="text-align: left;">
+                            <li>Press CTRL + Space to autocomplete</li>
+                            <li>You can execute queries with multiple SQL statements delimited by a semicolon ';'
+                            </li>
+                            <li>You can highlight and run a fragment of a query</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-bottom: 30px">
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div id="queryPane">
+
+                            <div data-bind="css: {'hide': design.errors().length == 0 || design.inlineErrors().length > 0}"
+                                 class="alert alert-error hide">
+                                <!-- ko if: $root.getQueryErrors().length > 0 --><!-- /ko -->
+                                <!-- ko if: $root.getQueryErrors().length == 0 -->
+                                <p><strong>Your query has the following error(s):</strong></p>
+
+                                <div data-bind="foreach: design.errors"></div>
+                                <!-- /ko -->
+                            </div>
+
+                            <div data-bind="css: {'hide': design.watch.errors().length == 0 || design.watch.inlineErrors().length > 0}"
+                                 class="alert alert-error hide">
+                                <p><strong>Your query has the following error(s):</strong></p>
+
+                                <div data-bind="foreach: design.watch.errors"></div>
+                            </div>
+
+                            <div class="CodeMirror cm-s-default" style="width: 99%; height: 100px;">
+                                <div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 34px;">
+                                        <textarea autocorrect="off" autocapitalize="off" tabindex="0"
+                                                  style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea>
+                                </div>
+                                <div class="CodeMirror-hscrollbar"
+                                     style="min-height: 18px; left: 29px; display: block; right: 0px;">
+                                    <div style="height: 1px; width: 454px;"></div>
+                                </div>
+                                <div class="CodeMirror-vscrollbar" style="bottom: 0px; min-width: 18px;">
+                                    <div style="width: 1px; height: 1px;"></div>
+                                </div>
+                                <div class="CodeMirror-scrollbar-filler"></div>
+                                <div class="CodeMirror-scroll" tabindex="-1">
+                                    <div style="position: relative; min-height: 100%;">
+                                        <div class="CodeMirror-sizer"
+                                             style="min-width: 466.016px; min-height: 21px; margin-left: 29px;">
+                                            <div style="position: relative; top: 0px;">
+                                                <div class="CodeMirror-lines">
+                                                    <div style="position: relative; outline: none;">
+                                                        <div class="CodeMirror-measure">
+                                                            <div style="width: 50px; height: 50px; overflow-x: scroll;"></div>
+                                                        </div>
+                                                        <div style="position: relative; z-index: 1; display: none;"></div>
+                                                        <div>
+                                                            <div style="position: relative;">
+                                                                <div style="position: absolute; left: -29px;">
+                                                                    <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                                                         style="left: 0px; width: 20px;">1
+                                                                    </div>
+                                                                </div>
+                                                                    <pre>Example: <span class="cm-keyword">SELECT</span> * <span
+                                                                            class="cm-keyword">FROM</span> tablename, or press CTRL + <span
+                                                                            class="cm-functions">space</span></pre>
+                                                            </div>
+                                                        </div>
+                                                        <div class="CodeMirror-cursor"
+                                                             style="left: 4px; top: 0px; height: 13px;">&nbsp;</div>
+                                                        <div class="CodeMirror-cursor CodeMirror-secondarycursor"
+                                                             style="display: none;">&nbsp;</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="position: absolute; height: 30px; width: 1px; top: 21px;"></div>
+                                        <div class="CodeMirror-gutters" style="left: 0px;">
+                                            <div class="CodeMirror-gutter CodeMirror-linenumbers"
+                                                 style="width: 28px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="actions">
+                                <button data-bind="click: tryExecuteQuery, visible: $root.canExecute, enable: $root.queryEditorBlank"
+                                        type="button" id="executeQuery" class="btn btn-primary disable-feedback"
+                                        tabindex="2" disabled="" data-original-title="">Execute
+                                </button>
+                                <button data-bind="click: tryCancelQuery, visible: $root.design.isRunning()"
+                                        class="btn btn-danger" data-loading-text="Canceling..." rel="tooltip"
+                                        data-original-title="Cancel the query" style="display: none;">Cancel
+                                </button>
+
+                                <button data-bind="click: tryExecuteNextStatement, visible: !$root.design.isFinished()"
+                                        type="button" class="btn btn-primary disable-feedback" tabindex="2"
+                                        style="display: none;">Next
+                                </button>
+                                <button data-bind="click: tryExecuteQuery, visible: !$root.design.isFinished()"
+                                        type="button" id="executeQuery" class="btn btn-primary disable-feedback"
+                                        tabindex="2" style="display: none;">Restart
+                                </button>
+
+                                <button data-bind="click: saveAsModal" type="button" class="btn">Save as...</button>
+                                <button data-bind="click: tryExplainQuery, visible: $root.canExecute" type="button"
+                                        id="explainQuery" class="btn">Explain
+                                </button>
+                                &nbsp; or create a &nbsp;
+                                <button data-bind="click: createNewQuery" type="button" class="btn">New query
+                                </button>
+                                <br><br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="content ">
+
+            <div class="card card-small scrollable resultsContainer">
+                <div data-bind="visible: !design.explain() &amp;&amp; $root.hasResults()" style="display: none;">
+                    <a id="expandResults" href="javascript:void(0)" rel="tooltip"
+                       class="view-query-results hide pull-right" data-original-title="See results in full screen"
+                       style="display: none;"><h4 style="margin-right: 20px"><i class="fa fa-expand"></i></h4></a>
+
+                    <a id="save-results" data-bind="click: saveResultsModal" href="javascript:void(0)" rel="tooltip"
+                       class="view-query-results hide pull-right"
+                       data-original-title="Save the results to HDFS or a new Hive table" style="display: none;"><h4
+                            style="margin-right: 20px"><i class="fa fa-save"></i></h4>
+                    </a>
+
+                    <a id="download-csv"
+                       data-bind="attr: {'href': '/beeswax/download/' + $root.design.history.id() + '/csv'}"
+                       href="/beeswax/download/-1/csv" rel="tooltip"
+                       class="view-query-results download hide pull-right"
+                       data-original-title="Download the results in CSV format" style="display: none;"><h4
+                            style="margin-right: 20px"><i class="hfo hfo-file-csv"></i></h4>
+                    </a>
+
+                    <a id="download-excel"
+                       data-bind="attr: {'href': '/beeswax/download/' + $root.design.history.id() + '/xls'}"
+                       href="/beeswax/download/-1/xls" rel="tooltip"
+                       class="view-query-results download hide pull-right"
+                       data-original-title="Download the results in XLS format" style="display: none;"><h4
+                            style="margin-right: 20px"><i class="hfo hfo-file-xls"></i></h4></a>
+                </div>
+
+                <div class="card-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active recentLi"><a href="#recentTab" data-toggle="tab">Recent queries</a></li>
+                        <li><a href="#query" data-toggle="tab">Query</a></li>
+                        <!-- ko if: !design.explain() -->
+                        <li><a href="#log" data-toggle="tab">Log</a></li>
+                        <!-- /ko -->
+                        <!-- ko if: !design.explain() -->
+                        <li><a href="#columns" data-toggle="tab">Columns</a></li>
+                        <li><a href="#results" data-toggle="tab">Results</a></li>
+                        <li><a href="#chart" data-toggle="tab">Chart</a></li>
+                        <!-- /ko -->
+                        <!-- ko if: design.explain() && !design.isRunning() --><!-- /ko -->
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="recentTab">
+                            <div id="recentLoader" style="display: none;">
+                                <!--[if !IE]><!--><i class="fa fa-spinner fa-spin"
+                                                     style="font-size: 20px; color: #DDD"></i><!--<![endif]-->
+                                <!--[if IE]><img src="/static/desktop/art/spinner.86b1ac6d1c48.gif"/><![endif]-->
+                            </div>
+                            <div class="dataTables_wrapper" id="recentQueries_wrapper" style="overflow-x: auto;">
+
+                                <table id="recentQueries" class="table table-striped table-condensed datatables"
+                                       cellpadding="0" cellspacing="0" data-tablescroller-enforce-height="true"
+                                       style="width: 100%; display: table;">
+                                    <thead>
+                                    <tr>
+                                        <th class="sorting_desc" rowspan="1" colspan="1" style="width: 100px;">
+                                            Time
+                                        </th>
+                                        <th class="sorting" rowspan="1" colspan="1">Query</th>
+                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 80px;">
+                                            Result
+                                        </th>
+                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 4px;">
+                                            &nbsp;</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr class="odd">
+                                        <td valign="top" colspan="4" class="dataTables_empty">No data available</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="query">
+                            <pre data-bind="visible: viewModel.design.statement() == ''">There is currently no query to visualize.</pre>
+                                <pre data-bind="visible: viewModel.design.statement() != '', text: viewModel.design.statement()"
+                                     style="display: none;"></pre>
+                        </div>
+
+                        <!-- ko if: design.explain() --><!-- /ko -->
+
+                        <!-- ko if: !design.explain() -->
+                        <div class="tab-pane" id="log">
+                            <div style="position:relative">
+                                <ul data-bind="foreach: $root.design.watch.jobUrls"
+                                    class="unstyled jobs-overlay"></ul>
+                                    <pre data-bind="visible: $root.design.watch.logs().length == 0">There are currently no logs to visualize. <img
+                                            src="/static/desktop/art/spinner.86b1ac6d1c48.gif"
+                                            data-bind="visible: $root.design.isRunning()" style="display: none;"></pre>
+                                    <pre data-bind="visible: $root.design.watch.logs().length > 0, text: $root.design.watch.logs().join('\n')"
+                                         style="display: none;"></pre>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="columns">
+                            <pre data-bind="visible: $root.design.results.columns().length == 0">There are currently no columns to visualize.</pre>
+                            <div data-bind="visible: $root.design.results.columns().length > 10"
+                                 style="display: none;">
+                                <input id="columnFilter" class="input-xlarge" type="text"
+                                       placeholder="Filter for column name or type...">
+                            </div>
+                            <table class="table table-striped table-condensed" cellpadding="0" cellspacing="0">
+                                <tbody data-bind="foreach: $root.design.results.columns"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane" id="results">
+                            <div data-bind="css: {'hide': design.results.errors().length == 0}"
+                                 class="alert alert-error hide">
+                                <p><strong>Fetching results ran into the following error(s):</strong></p>
+
+                                <div data-bind="foreach: design.results.errors"></div>
+                            </div>
+
+                            <div data-bind="css: {'hide': !$root.hasResults()}" class="hide">
+                                <div id="resultTablejHueTableExtenderClonedContainer"
+                                     class="jHueTableExtenderClonedContainer"
+                                     style="width: 0px; overflow-x: hidden; top: 0px; position: fixed;">
+                                    <div style="width: 100px;">
+                                        <table class="table table-striped table-condensed" cellpadding="0"
+                                               cellspacing="0" data-tablescroller-enforce-height="true"
+                                               style="margin-bottom: 0px; table-layout: fixed;">
+                                            <thead>
+                                            <tr data-bind="foreach: $root.design.results.columns"></tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <table id="resultTable" class="table table-striped table-condensed" cellpadding="0"
+                                       cellspacing="0" data-tablescroller-enforce-height="true">
+                                    <thead>
+                                    <tr data-bind="foreach: $root.design.results.columns"></tr>
+                                    </thead>
+                                </table>
+                            </div>
+
+                            <div data-bind="css: {'hide': !$root.design.results.empty() || $root.design.results.expired()}"
+                                 id="resultEmpty">
+                                <pre>The operation has no results.</pre>
+                            </div>
+
+                            <div data-bind="css: {'hide': !$root.design.results.expired()}" id="resultExpired"
+                                 class="hide">
+                                <pre>The results have expired, rerun the query if needed.</pre>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="chart">
+                            <pre data-bind="visible: $root.design.results.empty() || $root.design.results.expired()">There is currently no data to build a chart on.</pre>
+                            <div class="alert hide">
+                                <strong>Warning:</strong> the results on the chart have been limited to 1000 rows.
+                            </div>
+
+                            <div data-bind="visible: ! $root.design.results.empty() &amp;&amp; ! $root.design.results.expired()"
+                                 style="text-align: center; display: none;">
+                                <form class="form-inline">
+                                    Chart type&nbsp;
+                                    <div class="btn-group" data-toggle="buttons-radio">
+                                        <a rel="tooltip" data-placement="top" id="blueprintBars"
+                                           href="javascript:void(0)" class="btn" data-original-title="Bars"><i
+                                                class="hcha hcha-bar-chart"></i></a>
+                                        <a rel="tooltip" data-placement="top" id="blueprintLines"
+                                           href="javascript:void(0)" class="btn" data-original-title="Lines"><i
+                                                class="hcha hcha-line-chart"></i></a>
+                                        <a rel="tooltip" data-placement="top" id="blueprintPie"
+                                           href="javascript:void(0)" class="btn" data-original-title="Pie"><i
+                                                class="hcha hcha-pie-chart"></i></a>
+                                        <a rel="tooltip" data-placement="top" id="blueprintMap"
+                                           href="javascript:void(0)" class="btn" data-original-title="Map"><i
+                                                class="hcha hcha-map-chart"></i></a>
+                                    </div>
+                                    &nbsp;&nbsp;
+              <span id="blueprintAxis" class="hide">
+                <label>X-Axis
+                    <select id="blueprintX" class="blueprintSelect input-medium"></select>
+                </label>&nbsp;&nbsp;
+                <label>Y-Axis
+                    <select id="blueprintY" class="blueprintSelect input-medium"></select>
+                </label>&nbsp;
+                <div class="btn-group" data-toggle="buttons-radio">
+                    <a rel="tooltip" data-placement="top" id="blueprintNoSort" href="javascript:void(0)"
+                       class="btn active" data-original-title="No sorting"><i
+                            class="fa fa-align-left fa-rotate-270"></i></a>
+                    <a rel="tooltip" data-placement="top" id="blueprintSortAsc" href="javascript:void(0)" class="btn"
+                       data-original-title="Sort ascending"><i class="fa fa-sort-amount-asc fa-rotate-270"></i></a>
+                    <a rel="tooltip" data-placement="top" id="blueprintSortDesc" href="javascript:void(0)" class="btn"
+                       data-original-title="Sort descending"><i class="fa fa-sort-amount-desc fa-rotate-270"></i></a>
+                </div>&nbsp;&nbsp;
+              </span>
+              <span id="blueprintLatLng" class="hide">
+                <label>Latitude
+                    <select id="blueprintLat" class="blueprintSelect input-medium"></select>
+                </label>&nbsp;&nbsp;
+                <label>Longitude
+                    <select id="blueprintLng" class="blueprintSelect input-medium"></select>
+                </label>&nbsp;&nbsp;
+                <label>Label
+                    <select id="blueprintDesc" class="blueprintSelect input-medium"></select>
+                </label>
+              </span>
+                                </form>
+                            </div>
+                            <div data-bind="visible: ! $root.design.results.empty() &amp;&amp; ! $root.design.results.expired()"
+                                 id="blueprint" class="empty center" style="display: none;">Please select a chart
+                                type.
+                            </div>
+                            <div style="margin: 10px; display: none;"
+                                 data-bind="visible: ! $root.design.results.empty() &amp;&amp; ! $root.design.results.expired()">
+                                <div id="pieChart" data-bind="pieChart: {data: {counts: $root.chartData}, fqs: ko.observableArray([]),
+                transformer: pieChartDataTransformer,
+                maxWidth: 350 }, visible: $root.chartType() == 'pie'"
+                                     style="margin-left: auto; margin-right: auto; width: 0px; display: none;"></div>
+
+                                <div id="barChart" data-bind="barChart: {datum: {counts: $root.chartData}, fqs: ko.observableArray([]), hideSelection: true,
+                    transformer: barChartDataTransformer}, visible: $root.chartType() == 'bars'"
+                                     style="height: 300px;"></div>
+
+                                <div id="lineChart" data-bind="lineChart: {datum: {counts: $root.chartData},
+                    transformer: lineChartDataTransformer,
+                    showControls: false }, visible: $root.chartType() == 'lines'"
+                                     style="height: 300px; display: none;"></div>
+
+                                <div id="leafletMapChart" data-bind="leafletMapChart: {datum: {counts: $root.chartData},
+                    transformer: leafletMapChartDataTransformer,
+                    showControls: false }, visible: $root.chartType() == 'map'"
+                                     style="height: 0px; display: none;"></div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="../bower_components/raphael/raphael-min.js"></script>
+<script src="../bower_components/morrisjs/morris.min.js"></script>
+<script src="../js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

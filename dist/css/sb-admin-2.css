@@ -13,7 +13,6 @@ body {
 }
 
 #page-wrapper {
-    padding: 0 15px;
     min-height: 568px;
     background-color: #fff;
 }
@@ -351,4 +350,56 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+.navbar-top {
+    margin-bottom: 0px;
+}
+
+.clear{
+    clear:both
+    display: block;
+}
+
+#page-wrapper{
+margin: 0px !important;
+background-color: #f8f8f8;
+}
+
+.side_bar{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 250px;
+    margin: 20px;
+    min-height: 500px;
+}
+
+.content{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 80%;
+    margin: 20px;
+    margin-left: 0px !important;
+    min-height: 300px;
+    float: right !important;
+
+}
+
+.table-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.db-heads {
+    text-transform: capitalize;
+    color: #337ab7;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.select2-container {
+    margin-top: 10px;
 }
